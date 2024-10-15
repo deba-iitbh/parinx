@@ -39,15 +39,10 @@ class DateTimeJsonEncoder(json.JSONEncoder):
 # from http://code.activestate.com/recipes/576693/
 # Inline comments removed due pep8 E501 error
 try:
-    from thread import get_ident as _get_ident
-except ImportError:
-    try:
-        from dummy_thread import get_ident as _get_ident
-    except ImportError:
-        from threading import get_ident as _get_ident
+    from threading import get_ident as _get_ident
 
 try:
-    from _abcoll import KeysView, ValuesView, ItemsView
+    from collections.abc import KeysView, ValuesView, ItemsView
 except ImportError:
     pass
 
