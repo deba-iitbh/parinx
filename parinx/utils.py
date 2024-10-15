@@ -38,13 +38,9 @@ class DateTimeJsonEncoder(json.JSONEncoder):
 # Passes Python2.7's test suite and incorporates all the latest updates.
 # from http://code.activestate.com/recipes/576693/
 # Inline comments removed due pep8 E501 error
-try:
-    from threading import get_ident as _get_ident
+from threading import get_ident as _get_ident
+from collections.abc import KeysView, ValuesView, ItemsView
 
-try:
-    from collections.abc import KeysView, ValuesView, ItemsView
-except ImportError:
-    pass
 
 
 class OrderedDict(dict):
